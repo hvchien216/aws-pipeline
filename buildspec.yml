@@ -1,0 +1,26 @@
+version: 0.4
+
+phases:
+  install:
+    commands:
+      - echo Installing Node 14.18.1...
+      - curl -fsSL https://deb.nodesource.com/setup_14.18.1 | -E bash -
+      - apt-get install -y nodejs
+      - echo Installing Yarn...
+      - curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+      - echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+  pre_build:
+    commands:
+      - echo Installing dependencies...
+      - yarn
+  build:
+    commands:
+      - Installing Tests...
+      - yarn test
+      - Installing Build...
+      - yarn build
+artifacts:
+  files:
+    - "**/*"
+  discard-paths: no
+  base-directory: build
