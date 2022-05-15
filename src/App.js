@@ -18,6 +18,7 @@ function App() {
           Learn React
         </a>
         <h1>Chien Anubis</h1>
+        <h1>God</h1>
       </header>
     </div>
   );
